@@ -50,6 +50,7 @@ urlpatterns = [
     path('user/dashboard', views.user_dashboard, name='user_dashboard'),
     path('user/new_template', views.new_template, name='user_new_template'),
     path('user/<user_name>', views.user_profile, name='user_profile'),
+    path('user/export_data', views.user_export_data, name='user_export_data'),
     path('user/<username>/<slug:petitionname>', views.slug_show_petition, name="slug_show_petition"),
     # Actions
     path('get_user_list', views.get_user_list, name='get_user_list'),

@@ -349,6 +349,22 @@ def user_profile(request, user_name):
     )
 
 
+# /user/export_data
+# Send all user data as JSON
+def user_export_data(request):
+    pytitionuser = get_session_user(request)
+    data = {
+        'identification_infos': {
+            'firstname': pytitionuser.user.first_name,
+            'lastname': pytitionuser.user.last_name,
+            'email': pytitionuser.user.email
+        },
+        'petitions_signed': [],
+        'petitions_published': []
+    }
+    return JsonResponse(data)
+
+
 # /org/<slug:orgslugname>/leave_org
 # User is leaving the organisation
 @login_required
